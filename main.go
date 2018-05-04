@@ -27,24 +27,6 @@ var flags = []cli.Flag{
 		Usage:  "database type",
 		EnvVar: "_DATABASE_TYPE",
 	},
-	// cli.StringFlag{
-	// 	Name:   "dbaddr",
-	// 	Value:  "127.0.0.1:27017",
-	// 	Usage:  "database address",
-	// 	EnvVar: "_DATABASE_ADDRESS",
-	// },
-	// cli.StringFlag{
-	// 	Name:   "dbuser",
-	// 	Value:  "root",
-	// 	Usage:  "username to login database",
-	// 	EnvVar: "_DATABASE_USERNAME",
-	// },
-	// cli.StringFlag{
-	// 	Name:   "dbpass",
-	// 	Value:  "pass",
-	// 	Usage:  "password to login database",
-	// 	EnvVar: "_DATABASE_PASSWORD",
-	// },
 	cli.BoolFlag{
 		Name:   "debug",
 		Usage:  "show debug message",
