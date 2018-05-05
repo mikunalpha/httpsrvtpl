@@ -99,37 +99,37 @@ func (s *Server) recover() HandlerFunc {
 }
 
 func (s *Server) invalidParameterResp(c *Context, err error, msg string) {
-	log.Debugf("InvalidParameterResp: %v from %s request [%s] $s", err, c.ClientIP(), c.Request.Method, c.Request.URL)
+	log.Debugf("InvalidParameterResp: %v from %s request [%s] %s", err, c.ClientIP(), c.Request.Method, c.Request.URL)
 	InvalidParameterResp(c, msg)
 }
 
 func (s *Server) authenticationErrorResp(c *Context, err error, msg string) {
-	log.Debugf("AuthenticationErrorResp: %v from %s request [%s] $s", err, c.ClientIP(), c.Request.Method, c.Request.URL)
+	log.Debugf("AuthenticationErrorResp: %v from %s request [%s] %s", err, c.ClientIP(), c.Request.Method, c.Request.URL)
 	AuthenticationErrorResp(c, msg)
 }
 
 func (s *Server) authenticationExpiredResp(c *Context, err error, msg string) {
-	log.Debugf("AuthenticationExpiredResp: %v from %s request [%s] $s", err, c.ClientIP(), c.Request.Method, c.Request.URL)
+	log.Debugf("AuthenticationExpiredResp: %v from %s request [%s] %s", err, c.ClientIP(), c.Request.Method, c.Request.URL)
 	AuthenticationExpiredResp(c, msg)
 }
 
 func (s *Server) forbiddenResp(c *Context, err error, msg string) {
-	log.Debugf("ForbiddenResp: %v from %s request [%s] $s", err, c.ClientIP(), c.Request.Method, c.Request.URL)
+	log.Debugf("ForbiddenResp: %v from %s request [%s] %s", err, c.ClientIP(), c.Request.Method, c.Request.URL)
 	ForbiddenResp(c, msg)
 }
 
 func (s *Server) notFoundResp(c *Context, err error, msg string) {
-	log.Debugf("NotFoundResp: %v from %s request [%s] $s", err, c.ClientIP(), c.Request.Method, c.Request.URL)
+	log.Debugf("NotFoundResp: %v from %s request [%s] %s", err, c.ClientIP(), c.Request.Method, c.Request.URL)
 	NotFoundResp(c, msg)
 }
 
 func (s *Server) internalServerErrorResp(c *Context, err error, msg string) {
-	log.Errorf("InternalServerErrorResp: %v from %s request [%s] $s", err, c.ClientIP(), c.Request.Method, c.Request.URL)
+	log.Errorf("InternalServerErrorResp: %v from %s request [%s] %s", err, c.ClientIP(), c.Request.Method, c.Request.URL)
 	InternalServerErrorResp(c, msg)
 }
 
 func (s *Server) timeoutErrorResp(c *Context, err error, msg string) {
-	log.Debugf("TimeoutErrorResp: %v from %s request [%s] $s", err, c.ClientIP(), c.Request.Method, c.Request.URL)
+	log.Debugf("TimeoutErrorResp: %v from %s request [%s] %s", err, c.ClientIP(), c.Request.Method, c.Request.URL)
 	TimeoutErrorResp(c, msg)
 }
 
