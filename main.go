@@ -18,6 +18,7 @@ var version = "v0.1.2"
 var flags = []cli.Flag{
 	cli.StringFlag{
 		Name:   "address",
+		Value:  "0.0.0.0:8888",
 		Usage:  "server will listen on the address",
 		EnvVar: "_ADDRESS",
 	},
@@ -64,14 +65,10 @@ func action(c *cli.Context) error {
 		server.OptAddDebugHandler(),
 	}
 
-	if c.GlobalIsSet("address") {
-		opts = append(opts, server.OptAddress(c.GlobalString("address")))
-	}
-
 	stop := make(chan os.Signal)
 	signal.Notify(stop, os.Interrupt)
 
-	s := server.New("0.0.0.0:8888", opts...)
+	s := server.New(c.GlobalString("address"), opts...)
 	s.Run()
 
 	<-stop

@@ -29,9 +29,9 @@ func TestServerOptions(t *testing.T) {
 		OptAddress("0.0.0.0:9876"),
 		OptAutoCert("./ssl", "abc.fake.com"),
 		OptStore(st),
-		OptAddPingHandler(),
-		OptAddDebugHandler(),
-		OptAllowMethodOverride(),
+		OptAddPingHandler(), OptAddPingHandler(), // for coverage
+		OptAddDebugHandler(), OptAddDebugHandler(), // for coverage
+		OptAllowMethodOverride(), OptAllowMethodOverride(), // for coverage
 	}
 
 	s := New("0.0.0.0:80", opts...)
