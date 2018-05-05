@@ -71,6 +71,10 @@ type Server struct {
 	autoCertDomains      []string
 
 	store store.Store
+
+	hasAllowMethodOverride bool
+	hasPingHandler         bool
+	hasDebugHandler        bool
 }
 
 // recover is the default middleware used to deal with panic.

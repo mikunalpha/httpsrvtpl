@@ -13,7 +13,7 @@ import (
 	"github.com/urfave/cli"
 )
 
-var version = "v0.1.0"
+var version = "v0.1.2"
 
 var flags = []cli.Flag{
 	cli.StringFlag{
