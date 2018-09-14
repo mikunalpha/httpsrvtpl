@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
+	"syscall"
 
 	"github.com/mikunalpha/httpsrvtpl/store"
 	"github.com/mikunalpha/httpsrvtpl/store/mock"
@@ -57,6 +58,7 @@ func action(c *cli.Context) error {
 	if err != nil {
 		return fmt.Errorf("newStore failed: %v", err)
 	}
+	defer st.Close()
 
 	opts := []server.Option{
 		server.OptStore(st),
@@ -65,12 +67,11 @@ func action(c *cli.Context) error {
 		server.OptAddDebugHandler(),
 	}
 
-	stop := make(chan os.Signal)
-	signal.Notify(stop, os.Interrupt)
-
 	s := server.New(c.GlobalString("address"), opts...)
 	s.Run()
 
+	stop := make(chan os.Signal)
+	signal.Notify(stop, os.Interrupt, os.Kill, syscall.SIGTERM)
 	<-stop
 
 	return s.Stop()
